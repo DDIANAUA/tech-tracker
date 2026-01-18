@@ -1,0 +1,14 @@
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+@use './blocks/main';
+@use './blocks/header';
+@use './blocks/progress';
+@use './blocks/tech-block';
+@use './blocks/card-tech';
+@use './blocks/adding-techs';
+@use './blocks/form';
+@use './blocks/footer';
+@use './blocks/modal';

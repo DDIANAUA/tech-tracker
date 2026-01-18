@@ -1,0 +1,20 @@
+@use '../helpers' as *;
+.tech-block {
+	padding-block: rem(15);
+	// .tech-block__title
+	&__title {
+	}
+	// .tech-block__container
+	&__container {
+	}
+	// .tech-block__body
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(24);
+	}
+	// .tech-block__card-tech
+	&__card-tech {
+		flex: 1 0 calc(50% - rem(12));
+	}
+}

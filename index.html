@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Тех Трекер</title>
+		<link rel="stylesheet" href="./styles/main.css" />
+		<script src="./scripts/main.js" defer></script>
+	</head>
+	<body class="">
+		<div class="wrapper">
+			<header class="header">
+				<div class="header__container">
+					<h1 class="header__title">Тех трекер</h1>
+					<button
+						type="button"
+						id="toggle-theme"
+						class="header__button-theme">
+						theme
+					</button>
+				</div>
+			</header>
+			<main class="page">
+				<section class="page__progress progress">
+					<div class="progress__container">
+						<div class="progress__progress-bar">
+							<div
+								class="progress__progress-value"
+								data-js-progress-value-element>
+								<span
+									class="progress__percents"
+									data-js-progress-percents-element
+									>70%</span
+								>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="page__tech-block tech-block">
+					<h2 class="tech-block__title visually-hidden">
+						Ваший стек технологій
+					</h2>
+					<div class="tech-block__container">
+						<div
+							class="tech-block__body"
+							data-js-tech-block-body-element></div>
+					</div>
+				</section>
+				<section class="page__adding-techs adding-techs">
+					<div class="adding-techs__container">
+						<h2 class="adding-techs__title">Додати технологію</h2>
+						<form
+							action=""
+							class="adding-techs__form form"
+							data-js-form-element>
+							<div class="form__block">
+								<label for="tech-title" class="form__label">
+									Назва технології
+								</label>
+								<input
+									class="form__input"
+									type="text"
+									id="tech-title"
+									placeholder="Введіть назву технології"
+									data-js-input-tech-title-element
+									required />
+							</div>
+							<div class="form__block">
+								<label for="tech-description" class="form__label">
+									Опис технології
+								</label>
+								<textarea
+									name="tech-description"
+									class="form__textarea"
+									id="tech-description"
+									placeholder="Введіть опис технології"
+									data-js-textarea-description-element
+									rows="7"></textarea>
+							</div>
+							<button type="submit" class="form__add-button">
+								Додати
+							</button>
+						</form>
+					</div>
+				</section>
+			</main>
+			<footer class="footer">
+				<div class="footer__container">DDIANAUA</div>
+			</footer>
+		</div>
+		<div class="modal" data-js-modal-element>
+			<h2 class="modal__title">HTML</h2>
+			<div class="modal__text-block">
+				<p>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
+					deserunt quam magni molestiae voluptatem repudiandae temporibus
+					eligendi similique qui incidunt nihil rerum provident iusto
+					mollitia reiciendis consequuntur alias unde esse, officiis
+					voluptatibus distinctio quisquam accusamus, voluptates enim!
+					Ipsa, placeat reprehenderit.
+				</p>
+			</div>
+			<hr />
+			<div class="modal__learnt-input">
+				<label for="learnt">Вивчив/ла</label>
+				<input type="checkbox" id="learnt" />
+			</div>
+		</div>
+		<div class="modal-backdrop" data-js-modal-backdrop-element></div>
+	</body>
+</html>

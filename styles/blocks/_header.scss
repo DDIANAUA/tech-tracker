@@ -1,0 +1,16 @@
+@use '../helpers' as *;
+.header {
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	// .header__title
+	&__title {
+		text-transform: capitalize;
+	}
+	// .header__button-theme
+	&__button-theme {
+	}
+}

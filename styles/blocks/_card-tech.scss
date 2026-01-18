@@ -1,0 +1,41 @@
+@use '../helpers' as *;
+.card-tech {
+	background-color: var(--bg-card);
+	padding: 1.5rem;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-md);
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+	@include hovera {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+	}
+	// .card-tech__title
+	&__title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: var(--text-main);
+	}
+	// .card-tech__text
+	&__text {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+	}
+	&.done {
+		// background-color: green;
+		border-color: var(--success);
+		background-color: #ecfdf5;
+		&::after {
+			content: '✔';
+			position: absolute;
+			top: rem(10);
+			right: rem(15);
+			color: var(--success);
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+}

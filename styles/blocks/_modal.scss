@@ -1,0 +1,49 @@
+@use '../helpers' as *;
+.modal {
+	display: none;
+	@include abs-center;
+	z-index: 200;
+	padding: rem(20);
+	width: rem(700);
+	height: rem(500);
+	background-color: #fff;
+	// border-radius: rem(8);
+	border-radius: var(--radius);
+	box-shadow:
+		0 rem(20) rem(25) rem(-5) rgb(0 0 0 / 0.1),
+		0 rem(8) rem(10) rem(-6) rgb(0 0 0 / 0.1);
+	border: none;
+	&.open {
+		display: block;
+	}
+	// .modal__title
+	&__title {
+		color: var(--primary);
+		margin-bottom: 1rem;
+	}
+	// .modal__text
+	&__text {
+	}
+	// .modal__form
+	&__form {
+	}
+}
+.modal.open + .modal-backdrop {
+	display: block;
+}
+.modal-backdrop {
+	display: none;
+	position: absolute;
+	inset: 0;
+	// background-color: rgba(50, 50, 50, 0.7);
+	background-color: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4px); /* Розмиває фон за модалкою */
+}
+.form-modal {
+	// .form-modal__block
+	&__block {
+	}
+	// .form-modal__label
+	&__label {
+	}
+}

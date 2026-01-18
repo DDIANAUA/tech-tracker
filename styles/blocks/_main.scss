@@ -1,0 +1,14 @@
+@use '../helpers' as *;
+
+.page {
+	flex: 1;
+	// .page__progress
+	&__progress {
+	}
+	// .page__tech-block
+	&__tech-block {
+	}
+	// .page__adding-techs
+	&__adding-techs {
+	}
+}
