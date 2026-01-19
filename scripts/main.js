@@ -27,9 +27,10 @@ const LS_KEY = 'technologies array';
 
 // Functions===================================================================
 const formAction = event => {
-	const title = inputTechTitleElement.value;
-	const description = textareaDescriptionElement.value;
 	event.preventDefault();
+	const title = inputTechTitleElement.value.trim();
+	const description = textareaDescriptionElement.value.trim();
+	if (title.length === 0) return;
 	const newTechnologyItem = {
 		id: Date.now(),
 		title,
@@ -55,7 +56,6 @@ const openModal = event => {
 		}
 	}
 	const dataID = Number(event.target.closest('article')?.dataset.id);
-	// if (!dataID) return;
 	const neededTech = technologiesArray.find(item => item.id === dataID);
 	if (!neededTech) return;
 	modalElement.innerHTML = getTechnogyModalItemTemplate(neededTech);
@@ -96,9 +96,10 @@ const getTechnogyModalItemTemplate = ({ title, description, done, id }) => {
 		<p>${description}</p>
 	</div>
 	<hr />
-	<div class="modal__learnt-input">
+	<div class="modal__learnt-input" data-id="${id}">
 		<label for="learnt">Вивчив/ла</label>
-		<input type="checkbox" id="learnt" ${done ? 'checked' : ''}  data-id="${id}"/>
+		<input type="checkbox" id="learnt" ${done ? 'checked' : ''}  />
+		<button type="button">Видалити скіл</button>
 	</div>
 	`;
 };
@@ -131,24 +132,34 @@ const renderValueProgressBar = () => {
 	const result = calculateValueProgressBar();
 	progressValueElement.style.width = result + '%';
 	progressPercentsElement.textContent = result.toFixed(2) + '%';
-	if (result >= 0 && result <= 20) {
-		progressValueElement.style.backgroundColor = 'red';
-	} else if (result >= 21 && result <= 40) {
-		progressValueElement.style.backgroundColor = 'orange';
-	} else if (result >= 41 && result <= 70) {
-		progressValueElement.style.backgroundColor = 'yellow';
-	} else {
-		progressValueElement.style.backgroundColor = 'green';
-	}
+	progressValueElement.style.backgroundColor = 'green';
 };
 
 const toggleTech = event => {
-	const techID = Number(event.target.dataset.id);
+	const techID = Number(event.target.closest('div[data-id]').dataset.id);
 	const neededTech = technologiesArray.find(item => item.id === techID);
 	neededTech.done = event.target.checked;
 	renderTechnologiesList();
 	renderValueProgressBar();
 	saveToLS();
+};
+
+const deleteTech = event => {
+	if (event.target.closest('button')) {
+		const dataIDElement = Number(
+			event.target.closest('div[data-id]')?.dataset.id,
+		);
+		if (dataIDElement) {
+			const findedItemIndex = technologiesArray.findIndex(
+				value => value.id === dataIDElement,
+			);
+			technologiesArray.splice(findedItemIndex, 1);
+			renderTechnologiesList();
+			renderValueProgressBar();
+			saveToLS();
+		}
+	}
+	closeModal();
 };
 
 const saveToLS = () => {
@@ -169,3 +180,4 @@ modalBackdropElement.addEventListener('click', closeModal);
 formElement.addEventListener('submit', formAction);
 
 modalElement.addEventListener('change', toggleTech);
+modalElement.addEventListener('click', deleteTech);
